@@ -20,7 +20,7 @@ contract DuneswapToken is ERC20, ERC20Permit, Pausable, AccessControl {
     bytes32 public constant ROUTER_ROLE = keccak256("ROUTER_ROLE");
 
     uint256 private _maxSupply = 1000000000 * 10**decimals(); // 1 billion tokens is maximum supply
-    uint256 private _initialSupply = 100000 * 10**decimals(); // 100,000 tokens is the initial supply
+    uint256 private _initialSupply = 500000 * 10**decimals(); // 500,000 tokens is the initial supply
 
     event TokensRescued(address indexed sender, address indexed token, uint256 value);
 
