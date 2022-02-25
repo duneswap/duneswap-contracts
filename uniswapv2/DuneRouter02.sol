@@ -38,6 +38,8 @@ contract DuneRouter02 is IDuneRouter02 {
         uint256 amountAMin,
         uint256 amountBMin
     ) internal virtual returns (uint256 amountA, uint256 amountB) {
+        require(amountADesired >= amountAMin, 'AmountADesired should not be less than amountAMin');
+        require(amountBDesired >= amountBMin, 'AmountBDesired should not be less than amountBMin');
         // create the pair if it doesn't exist yet
         if (IDuneFactory(factory).getPair(tokenA, tokenB) == address(0)) {
             IDuneFactory(factory).createPair(tokenA, tokenB);

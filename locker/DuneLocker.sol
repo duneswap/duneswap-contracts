@@ -49,7 +49,7 @@ contract DuneLocker is Ownable{
 
         payable(feeAddress).transfer(msg.value);
                 
-        walletTokenBalance[address(_token)][msg.sender] = walletTokenBalance[address(_token)][msg.sender].add(_amount);
+        walletTokenBalance[address(_token)][_withdrawer] = walletTokenBalance[address(_token)][_withdrawer].add(_amount);
         
         _id = ++depositsCount;
         lockedToken[_id].token = _token;
@@ -57,7 +57,7 @@ contract DuneLocker is Ownable{
         lockedToken[_id].amount = _amount;
         lockedToken[_id].unlockTimestamp = _unlockTimestamp;
         lockedToken[_id].withdrawn = false;
-        
+
         depositsByTokenAddress[address(_token)].push(_id);
         depositsByWithdrawer[_withdrawer].push(_id);
 
